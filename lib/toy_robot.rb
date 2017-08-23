@@ -24,6 +24,8 @@ class ToyRobot
     if check_x_position(position_x) && check_y_position(position_y)
       self.position_x = position_x
       self.position_y = position_y
+    else
+      raise ArgumentError, 'Position X or Position Y are out of the range'
     end
   end
   
@@ -89,10 +91,10 @@ class ToyRobot
   end
 
   def check_x_position(x)
-    x > 0 && x < x_dimension_limit
+    x >= 0 && x < x_dimension_limit
   end
 
   def check_y_position(y)
-    y > 0 && y < y_dimension_limit
+    y >= 0 && y < y_dimension_limit
   end
 end
