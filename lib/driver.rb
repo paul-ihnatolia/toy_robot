@@ -28,6 +28,10 @@ class Driver
         end
       end
     end
+  rescue ArgumentError => e
+    puts e.message
+  rescue RuntimeError => e
+    puts e.message
   end
 
   private

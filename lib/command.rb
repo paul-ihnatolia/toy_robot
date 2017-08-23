@@ -24,19 +24,19 @@ class Command
   end
 
   def get_position_x
-    raise 'Wrong Command Type' unless place?
+    raise RuntimeError, 'Wrong Command Type' unless place?
     
     command_string.scan(/\d+{1,}/).first
   end
 
   def get_position_y
-    raise 'Wrong Command Type' unless place?
+    raise RuntimeError, 'Wrong Command Type' unless place?
     
     command_string.scan(/\d+{1,}/).last
   end
 
   def get_facing
-    raise 'Wrong Command Type' unless place?
+    raise RuntimeError, 'Wrong Command Type' unless place?
 
     command_string.scan(/[A-Z]{1,}$/).last
   end
