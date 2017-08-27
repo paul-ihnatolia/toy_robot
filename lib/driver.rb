@@ -14,7 +14,7 @@ class Driver
 
       if current_command.valid?
         if current_command.place?
-          toy_robot.set_positions(current_command.get_position_x.to_i, current_command.get_position_y.to_i)
+          toy_robot.set_positions(current_command.get_position_x, current_command.get_position_y)
           toy_robot.set_facing(current_command.get_facing)
           toy_robot.activate!
         elsif current_command.move? && toy_robot.activated?

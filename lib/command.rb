@@ -20,19 +20,19 @@ class Command
   end
   
   def place?
-    command_string =~ Regexp.new("^#{PLACE_TYPE}")
+    !!(command_string =~ Regexp.new("^#{PLACE_TYPE}"))
   end
 
   def get_position_x
     raise RuntimeError, 'Wrong Command Type' unless place?
     
-    command_string.scan(/\d+{1,}/).first
+    command_string.scan(/\d+{1,}/).first.to_i
   end
 
   def get_position_y
     raise RuntimeError, 'Wrong Command Type' unless place?
     
-    command_string.scan(/\d+{1,}/).last
+    command_string.scan(/\d+{1,}/).last.to_i
   end
 
   def get_facing
@@ -42,19 +42,19 @@ class Command
   end
   
   def move?
-    command_string =~ Regexp.new("^#{MOVE_TYPE}")
+    !!(command_string =~ Regexp.new("^#{MOVE_TYPE}"))
   end
 
   def left?
-    command_string =~ Regexp.new("^#{LEFT_TYPE}")
+    !!(command_string =~ Regexp.new("^#{LEFT_TYPE}"))
   end
 
   def right?
-    command_string =~ Regexp.new("^#{RIGHT_TYPE}")
+    !!(command_string =~ Regexp.new("^#{RIGHT_TYPE}"))
   end
 
   def report?
-    command_string =~ Regexp.new("^#{REPORT_TYPE}")
+    !!(command_string =~ Regexp.new("^#{REPORT_TYPE}"))
   end
 
   private
