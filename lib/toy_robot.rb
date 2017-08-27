@@ -6,6 +6,8 @@ class ToyRobot
   
   FACINGS = [NORTH_FACING, EAST_FACING, SOUTH_FACING, WEST_FACING]
   
+  attr_reader :position_x, :position_y, :facing
+
   def initialize(x_dimension_limit, y_dimension_limit)
     self.x_dimension_limit  = x_dimension_limit
     self.y_dimension_limit  = y_dimension_limit
@@ -59,8 +61,8 @@ class ToyRobot
   end
   
   private
-  attr_accessor :position_x, :position_y, :facing,
-                :activated, :x_dimension_limit, :y_dimension_limit
+  attr_writer   :position_x, :position_y, :facing
+  attr_accessor :activated, :x_dimension_limit, :y_dimension_limit
 
   def move_west
     new_position_x = position_x - 1
